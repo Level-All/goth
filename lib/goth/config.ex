@@ -278,6 +278,7 @@ defmodule Goth.Config do
   # Decodes JSON (if configured) and sets oauth token source
   defp decode_json(json) do
     json
+    |> Base.decode64!()
     |> Jason.decode!()
     |> set_token_source
   end
